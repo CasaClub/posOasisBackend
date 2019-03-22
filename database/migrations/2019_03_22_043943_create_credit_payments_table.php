@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTicketsTable extends Migration
+class CreateCreditPaymentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
+        Schema::create('credit_payments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('dni_physical',100);
-            $table->unsignedInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamp('date_ticket');
+            $table->unsignedInteger('credit_id');
+            $table->foreign('credit_id')->references('id')->on('credits');
             $table->unsignedInteger('payment_id');
             $table->foreign('payment_id')->references('id')->on('payments');
-
+            $table->timestamp('date_credit_payment');
+            $table->decimal('amount',8,2);
+            
             $table->timestamps();
         });
     }
@@ -35,6 +33,6 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('credit_payments');
     }
 }
