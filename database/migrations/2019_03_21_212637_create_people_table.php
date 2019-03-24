@@ -19,7 +19,7 @@ class CreatePeopleTable extends Migration
             $table->string('surnames',50);
             $table->string('dni',30);
             $table->string('telephone',30);
-            $table->string('direction',100)-nullable();
+            $table->string('direction',100)->nullable();
             $table->timestamps();
         });
     }

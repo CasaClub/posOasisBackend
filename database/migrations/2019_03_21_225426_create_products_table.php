@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Models\Product;
+use App\Models\Product;
 class CreateProductsTable extends Migration
 {
     /**
