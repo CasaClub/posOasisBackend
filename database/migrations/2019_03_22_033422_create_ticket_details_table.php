@@ -15,17 +15,17 @@ class CreateTicketDetailsTable extends Migration
     {
         Schema::create('ticket_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_company',50);
             $table->unsignedInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('tickets');
-            $table->unsignedInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedInteger('commodity_id');
+            $table->foreign('commodity_id')->references('id')->on('commodities');
             $table->unsignedInteger('quantity');
             $table->decimal('amount',8,2); // of products
             $table->decimal('discount',8,2);
             $table->decimal('total_taxes',8,2);
             $table->decimal('Subtotal',8,2);
             $table->decimal('total',8,2);
+        
             $table->timestamps();
         });
     }

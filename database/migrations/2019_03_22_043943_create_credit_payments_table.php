@@ -17,11 +17,10 @@ class CreateCreditPaymentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('credit_id');
             $table->foreign('credit_id')->references('id')->on('credits');
-            $table->unsignedInteger('payment_id');
-            $table->foreign('payment_id')->references('id')->on('payments');
-            $table->timestamp('date_credit_payment');
+            $table->unsignedInteger('ticket_id');
+            $table->foreign('ticket_id')->references('id')->on('tickets');
             $table->decimal('amount',8,2);
-            
+            $table->decimal('balance',8,2);
             $table->timestamps();
         });
     }

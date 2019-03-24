@@ -16,6 +16,7 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dni_physical',100);
+            $table->string('name_company',50);
             $table->unsignedInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
             $table->unsignedInteger('user_id');
@@ -23,7 +24,8 @@ class CreateTicketsTable extends Migration
             $table->timestamp('date_ticket');
             $table->unsignedInteger('payment_id');
             $table->foreign('payment_id')->references('id')->on('payments');
-
+            $table->string('telephone',30);
+            $table->text('description')->comment('Verse or message');
             $table->timestamps();
         });
     }
