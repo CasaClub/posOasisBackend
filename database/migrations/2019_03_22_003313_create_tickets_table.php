@@ -24,6 +24,7 @@ class CreateTicketsTable extends Migration
             $table->timestamp('date_ticket');
             $table->unsignedInteger('payment_id');
             $table->foreign('payment_id')->references('id')->on('payments');
+            $table->unsignedBigInteger('code_voucher_dataphone')->nullable();
             $table->string('telephone',30);
             $table->text('description')->comment('Verse or message');
             $table->timestamps();
