@@ -17,8 +17,8 @@ class CreateTicketDetailsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('tickets');
-            $table->unsignedInteger('commodity_id');
-            $table->foreign('commodity_id')->references('id')->on('commodities');
+            $table->unsignedInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedInteger('quantity');
             $table->decimal('amount',8,2); // of products
             $table->decimal('discount',8,2);
