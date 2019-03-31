@@ -11,8 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->truncateTables([]);
-
+        $this->truncateTables(['roles','people']);
+        $this->call([
+            RoleSeeder::class,
+            PersonSeeder::class,
+        ]);
         // $this->call(ejemplo::class);  // aqui todas las clases de los seeaders por orden al igual que el metodo de truncar
     }
 
