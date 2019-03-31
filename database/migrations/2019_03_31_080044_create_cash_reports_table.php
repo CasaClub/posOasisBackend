@@ -15,6 +15,12 @@ class CreateCashReportsTable extends Migration
     {
         Schema::create('cash_reports', function (Blueprint $table) {
             $table->increments('id');
+            $table->timestamp('start_report');
+            $table->timestamp('end_report')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->decimal('effective');
+            $table->decimal('dataphone');
             $table->timestamps();
         });
     }
