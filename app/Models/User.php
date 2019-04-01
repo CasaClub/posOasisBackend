@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Role;
 use App\Models\cashReport;
 use App\Models\Workshift;
+use App\Models\Ticket;
 
 class User extends Authenticatable
 {
@@ -55,5 +56,9 @@ class User extends Authenticatable
 
     public function person(){
         return $this->belongsTo(Person::class);
+    }
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
     }
 }
