@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+<<<<<<< HEAD
 
+=======
+use App\Models\Role;
+>>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -14,8 +18,15 @@ use Faker\Generator as Faker;
 |
 */
 
+<<<<<<< HEAD
 $factory->define(App\User::class, function (Faker $faker) {
     return [
+=======
+$factory->define(App\Models\User::class, function (Faker $faker) {
+    return [
+        'person_id'=>null,
+        'role_id'=>Role::all()->random()->id,
+>>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
