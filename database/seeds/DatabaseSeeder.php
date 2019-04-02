@@ -11,24 +11,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->truncateTables(['roles','products','payments','people','users','cash_reports','workshifts','clients','credits','credit_payments','ticket_details']);
+        $this->truncateTables([
+            'roles',
+            'products',
+            'payments',
+            'people',
+            'users',
+            'cash_reports',
+            'workshifts',
+            'clients',
+            'credits',
+            'credit_payments',
+            'ticket_details',
+        ]);
         $this->call([
             RoleSeeder::class,
             ProductSeeder::class,
             PaymentSeeder::class,
             PersonSeeder::class,
             UserSeeder::class,
+            TicketSeeder::class,
             CashReportSeeder::class,
             WorkshiftSeeder::class,
             ClientSeeder::class,
             CreditSeeder::class,
             CreditPaymentSeeder::class,
             TicketDetailsSeeder::class,
-                   
+            
         ]);
         // $this->call(ejemplo::class);  // aqui todas las clases de los seeaders por orden al igual que el metodo de truncar
     }
-
+    
     function truncateTables(array $tables){
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;'); // DESACTIVAMOS LAS RELACIONES 
         foreach($tables as $table):
