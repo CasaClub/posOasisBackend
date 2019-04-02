@@ -21,6 +21,14 @@ class PersonSeeder extends Seeder
             'telephone'=>'89966245',
             'direction'=>'La granja'
         ]);
+        
+        factory(Person::class,1)->create([
+            'name'=>"Ismael",
+            'surnames'=>'Reyes',
+            'dni'=>'155820481208',
+            'telephone'=>'84700819',
+            'direction'=>'Nosara'  
+        ]); 
 
         factory(Person::class,9)->create()
         ->each(function(Person $per){
