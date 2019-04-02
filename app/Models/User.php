@@ -1,22 +1,15 @@
 <?php
 
-<<<<<<< HEAD
-namespace App;
-=======
 namespace App\Models;
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-<<<<<<< HEAD
-=======
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Role;
 use App\Models\cashReport;
 use App\Models\Workshift;
 use App\Models\Ticket;
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
 
 class User extends Authenticatable
 {
@@ -28,11 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'name', 'email', 'password',
-=======
         'name', 'email', 'password','person_id','role_id'
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
     ];
 
     /**
@@ -52,8 +41,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-<<<<<<< HEAD
-=======
 
     public function role(){
         return $this->belongsTo(Role::class);
@@ -74,5 +61,4 @@ class User extends Authenticatable
     public function tickets(){
         return $this->hasMany(Ticket::class);
     }
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
 }

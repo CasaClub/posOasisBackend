@@ -23,11 +23,7 @@ class CreatePeopleTable extends Migration
             $table->timestamps();
         });
     }
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
     /**
      * Reverse the migrations.
      *

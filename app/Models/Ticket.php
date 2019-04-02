@@ -3,12 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-
-class Ticket extends Model
-{
-    
-=======
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\Client;
@@ -35,5 +29,4 @@ class Ticket extends Model
     public function ticket_details(){
         return $this->hasOne(ticket_details::class);
     }
->>>>>>> 2be0a8ea9313bb4c348d1398420c00ef36ae7315
 }
