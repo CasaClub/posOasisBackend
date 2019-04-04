@@ -15,7 +15,6 @@ class ClientSeeder extends Seeder
         factory(Person::class,9)->create()
         ->each(function(Person $per){
             factory(Client::class)->create(['person_id'=>$per->id]);
-        });
-        
+        }); 
     }
 }

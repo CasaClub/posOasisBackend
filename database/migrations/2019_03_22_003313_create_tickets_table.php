@@ -30,7 +30,7 @@ class CreateTicketsTable extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
