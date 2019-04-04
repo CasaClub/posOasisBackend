@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Client;
+use App\Models\Person;
 class ClientSeeder extends Seeder
 {
     /**
@@ -11,6 +12,10 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Person::class,9)->create()
+        ->each(function(Person $per){
+            factory(Client::class)->create(['person_id'=>$per->id]);
+        });
+        
     }
 }

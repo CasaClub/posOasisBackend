@@ -9,8 +9,9 @@ $factory->define(App\Models\Product::class, function (Faker $faker) {
         'price_cost'=>$faker->randomNumber(5),
         'price_sale'=>$faker->randomNumber(5),
         'stock'=>$faker->randomNumber(2),
-        'wholesalers_price'=>$faker->randomFloat(3),
-        'taxes'=>$faker->randomFloat(3),
+        'wholesalers_price'=>$faker->randomFloat(2,3),
+        'taxes'=>$faker->randomNumber(2),
         'description'=>$faker->text,
     ];
 });
+    

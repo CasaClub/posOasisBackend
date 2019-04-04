@@ -20,11 +20,11 @@ class CreateTicketDetailsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedInteger('quantity');
-            $table->decimal('amount',8,2); // of products
-            $table->decimal('discount',8,2);
-            $table->decimal('total_taxes',8,2);
-            $table->decimal('Subtotal',8,2);
-            $table->decimal('total',8,2);
+            $table->decimal('amount',12,2); // of products
+            $table->decimal('discount',12,2);
+            $table->decimal('total_taxes',12,2);
+            $table->decimal('Subtotal',12,2);
+            $table->decimal('total',12,2);
         
             $table->timestamps();
         });

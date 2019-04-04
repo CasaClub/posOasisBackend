@@ -17,8 +17,8 @@ class CreateCreditsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->decimal('max',8,2);
-            $table->decimal('balance',8,2);
+            $table->decimal('max',12,2);
+            $table->decimal('balance',12,2);
             $table->unsignedTinyInteger('status')->default(1);
             $table->timestamps();
         });

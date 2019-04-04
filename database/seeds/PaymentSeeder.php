@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Payment;
 
 class PaymentSeeder extends Seeder
 {
@@ -11,6 +12,9 @@ class PaymentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Payment::class,1)->create(['type'=>'Cheque']);
+        factory(Payment::class,1)->create(['type'=>'Tarjeta']);
+        factory(Payment::class,1)->create(['type'=>'Efectivo']);
+        factory(Payment::class,1)->create(['type'=>'Transferencia']);
     }
 }

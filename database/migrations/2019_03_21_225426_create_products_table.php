@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('internal_code',50)->unique();
             $table->string('name',50);
-            $table->decimal('price_cost', 8, 2)->nullable()->default(0);
-            $table->decimal('price_sale', 8, 2)->nullable()->default(0);
+            $table->decimal('price_cost', 12, 2)->nullable()->default(0);
+            $table->decimal('price_sale', 12, 2)->nullable()->default(0);
             $table->unsignedInteger('stock')->default(0);
-            $table->decimal('wholesalers_price',8,2)->nullable()->default(0); // precio mayorista
-            $table->decimal('taxes',8,2)->nullable()->default(0); // impuestos
+            $table->decimal('wholesalers_price',12,2)->nullable()->default(0); // precio mayorista
+            $table->decimal('taxes',12,2)->nullable()->default(0); // impuestos
             $table->text('description')->nullable();
             $table->unsignedTinyInteger('status')->default(Product::active);
             $table->timestamps();

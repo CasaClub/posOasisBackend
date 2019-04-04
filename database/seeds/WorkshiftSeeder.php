@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Workshift;
 
 class WorkshiftSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class WorkshiftSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Workshift::class,5)->create();
     }
 }

@@ -30,14 +30,5 @@ class PersonSeeder extends Seeder
             'direction'=>'Nosara'  
         ]); 
 
-        factory(Person::class,9)->create()
-        ->each(function(Person $per){
-            factory(Client::class)->create(['person_id'=>$per->id]);
-        });
-
-        factory(Person::class,4)->create()
-        ->each(function(Person $per){
-            factory(User::class)->create(['person_id'=>$per->id]);
-        });
     }
 }

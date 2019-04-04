@@ -19,8 +19,8 @@ class CreateCreditPaymentsTable extends Migration
             $table->foreign('credit_id')->references('id')->on('credits');
             $table->unsignedInteger('ticket_id');
             $table->foreign('ticket_id')->references('id')->on('tickets');
-            $table->decimal('amount',8,2);
-            $table->decimal('balance',8,2);
+            $table->decimal('amount',12,2);
+            $table->decimal('balance',12,2);
             $table->timestamps();
         });
     }
