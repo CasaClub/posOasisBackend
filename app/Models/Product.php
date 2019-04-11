@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'name',
+        'internal_code',
+        
+    ];
+
+
     const active = 1;
     const inactive = 0;
 

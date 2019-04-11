@@ -44,7 +44,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $typeRequest = $request->headers->get('Content-Type'); //  obtenemos lo que vengan en los headers
+
+        if($typeRequest == "application/json" || "multipart/form-data"):
+
+            request()->validate([
+                'name'=>'required|unique:products,name',
+                'internal_code'=>'required|unique:products,internal_code'
+            ]);   // si no paso la validacion se detendra y retornara status 500
+            
+            Product::create(request()->all());
+            return response()->json("Producto guardado correctamente!",201);
+
+        else:
+            return response()->json("Unauthorized, request is not json",401);
+        endif;
     }
 
     /**
@@ -56,17 +71,31 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $typeRequest = $request->headers->get('Content-Type'); 
+
+        if($typeRequest == "application/json" || "multipart/form-data"):
+            request()->validate([
+                'name'=>'required'
+            ]);
+
+        else:
+
+        endif;
     }
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+       
+        // if():
+
+        // else:
+
+        // endif;
     }
 }
