@@ -16,6 +16,3 @@ class RoleSeeder extends Seeder
         factory(Role::class,1)->create(['name'=>'cashier']);
     }
 }
-// ->each(function(Role $role){
-//     factory(User::class,1)->create(['role_id'=>$role->id]);
-// })

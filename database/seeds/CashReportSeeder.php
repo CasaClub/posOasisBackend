@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\cashReport;
 
 class CashReportSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class CashReportSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(cashReport::class,4)->create();
     }
 }

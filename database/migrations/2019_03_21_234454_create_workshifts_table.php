@@ -19,9 +19,9 @@ class CreateWorkshiftsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('start_workshifts')->nullable();
             $table->timestamp('end_workshifts')->nullable();
-            $table->decimal('total',8,2);
-            $table->decimal('total_taxes',8,2);
-            $table->decimal('total_earnings',8,2);
+            $table->decimal('total',12,2);
+            $table->decimal('total_taxes',12,2);
+            $table->decimal('total_earnings',12,2);
             $table->unsignedTinyInteger('status')->default(1);
             $table->timestamps();
         });
