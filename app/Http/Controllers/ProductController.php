@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -44,10 +45,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-       
-        $typeRequest = $request->headers->get('Content-Type'); //  obtenemos lo que vengan en los headers
+        $headersAccess = $request->headers->get('Content-Type'); //  obtenemos lo que vengan en los headers
 
-        if($typeRequest == "application/json" || "multipart/form-data"):
+        if($headersAccess == "application/json" || "multipart/form-data"):
 
             request()->validate([
                 'name'=>'required|unique:products,name',
@@ -58,44 +58,58 @@ class ProductController extends Controller
             return response()->json("Producto guardado correctamente!",201);
 
         else:
-            return response()->json("Unauthorized, request is not json",401);
+            return response()->json("Unauthorized, request is not json or form-data",401);
         endif;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+ 
+    public function update(Request $request, Product $product)
     {
-        $typeRequest = $request->headers->get('Content-Type'); 
+      
+        $headersAccess = $request->headers->get('Content-Type'); 
 
-        if($typeRequest == "application/json" || "multipart/form-data"):
-            request()->validate([
-                'name'=>'required'
+        if($headersAccess == "application/json" || "multipart/form-data")
+        {
+            $data = $request->validate([
+                'name'=>'required',
+                'internal_code'=>['required', Rule::unique('products')->ignore($product->id)], // mismo codigo interno del producto lo ignora, pero si es uno que ya esta nos devuelve error
+                'price_cost'=>'required',
+                'price_sale'=>'required',
+                'stock'=>'required',
+                'wholesalers_price'=>'',
+                'taxes'=>'',
+                'description'=>'',
+                'status'=>''
             ]);
-
-        else:
-
-        endif;
+            
+            if($product->update($data)):
+                return response()->json('Producto modificado correctamente',200);
+            else:
+                return response()->json('Error al modificar el producto',500);
+            endif;
+        }
+        else
+        {
+            return response()->json('Unauthorized',401);
+        }        
     }
 
     /**
      * Remove the specified resource from storage.
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Product $product)
     {
-       
-        // if():
-
-        // else:
-
-        // endif;
+       if(request()->isJson()):
+            if($product->delete()):
+                return response()->json("Producto eliminado!",200);
+            else:
+                return response()->json("Error al eliminar el producto!",500);
+            endif;
+       else:
+        return response()->json('Unauthorized',401);
+       endif;
     }
 }

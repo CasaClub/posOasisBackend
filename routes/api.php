@@ -18,7 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' =>'api'], function () {
-    Route::get('/product','ProductController@index');
-    Route::get('/product/{id}','ProductController@show');
-    Route::post('/product','ProductController@store');
+    Route::get('/products','ProductController@index');
+    Route::get('/products/{id}','ProductController@show');
+    Route::post('/products','ProductController@store');
+    Route::put('/products/{product}','ProductController@update')->where('product','[0-9]+');
+    Route::delete('/products/{product}','ProductController@delete')->where('product','[0-9]+');
 });
