@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\credit;
 use App\Models\Client;
-use App\Models\Person;
+
 
 class CreditSeeder extends Seeder
 {
@@ -14,9 +14,20 @@ class CreditSeeder extends Seeder
      */
     public function run()
     {
-        factory(Client::class,5)->create(['person_id'=>Person::all()->random()->id])
-        ->each(function(Client $client){
-            factory(credit::class,5)->create(['client_id'=>$client->id]);
-        });
+        factory(credit::class,1)->create([
+            'client_id'=>1
+        ]);
+        factory(credit::class,1)->create([
+            'client_id'=>2
+        ]);
+        factory(credit::class,1)->create([
+            'client_id'=>3
+        ]);
+        factory(credit::class,1)->create([
+            'client_id'=>4
+        ]);
+        factory(credit::class,1)->create([
+            'client_id'=>5
+        ]);
     }
 }

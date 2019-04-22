@@ -14,5 +14,6 @@ class RoleSeeder extends Seeder
     {
         factory(Role::class,1)->create(['name'=>'admin']);
         factory(Role::class,1)->create(['name'=>'cashier']);
+        factory(Role::class,1)->create(['name'=>'client']);
     }
 }

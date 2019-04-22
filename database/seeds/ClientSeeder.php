@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Client;
-use App\Models\Person;
+use App\Models\User;
 class ClientSeeder extends Seeder
 {
     /**
@@ -12,9 +12,20 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        factory(Person::class,9)->create()
-        ->each(function(Person $per){
-            factory(Client::class)->create(['person_id'=>$per->id]);
-        }); 
+        factory(Client::class,1)->create([
+            'user_id'=> 3,
+        ]);
+        factory(Client::class,1)->create([
+            'user_id'=> 4,
+        ]);
+        factory(Client::class,1)->create([
+            'user_id'=> 5,
+        ]);
+        factory(Client::class,1)->create([
+            'user_id'=> 6,
+        ]);
+        factory(Client::class,1)->create([
+            'user_id'=> 7,
+        ]);
     }
 }

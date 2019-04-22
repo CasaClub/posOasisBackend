@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedTinyInteger('status')->default(Product::active);
             $table->timestamps();
+            $table->softDeletes(); // para el borrado logico
         });
     }
 
