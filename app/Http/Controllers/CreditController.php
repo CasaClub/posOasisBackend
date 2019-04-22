@@ -19,16 +19,16 @@ class CreditController extends Controller
         $creditArray = [];
         
         foreach ($credits as $value) { // hacemos un objeto con los detalles del cliente y su credito
-           $info =[
+           $creditInfo =[
                'id'=>$value->id,
-               'name'=> $value->client->user->name,
+               'client'=> $value->client->user->name,
                'surnames'=> $value->client->user->surnames,
                'dni'=> $value->client->user->dni,
                'telephone'=> $value->client->user->telephone,
                'max'=>$value->max,
                'balance'=>$value->balance
            ]; 
-           array_push($creditArray,$info);
+           array_push($creditArray,$creditInfo);
         }
         return response()->json($creditArray);
     }
@@ -41,9 +41,8 @@ class CreditController extends Controller
      */
     public function show(credit $credit)
     {
-        dd($credit);
        // validar si es json
-        $detail = [
+        $creditInfo = [
             'id'=>$credit->id,
             'name'=> $credit->client->user->name,
             'surnames'=> $credit->client->user->surnames,
@@ -52,7 +51,7 @@ class CreditController extends Controller
             'max'=>$credit->max,
             'balance'=>$credit->balance
         ];
-        return response()->json($detail);
+        return response()->json($creditInfo);
     }
 
     /**

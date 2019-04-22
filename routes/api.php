@@ -51,4 +51,6 @@ Route::group(['prefix' =>'users','middleware' => ['cors']], function () {
 
 Route::group(['prefix' => 'cash_reports','middleware'=> ['cors']], function () {
     Route::get('/','CashReportController@index');
+    Route::get('/{cash_report}','CashReportController@show');
+    Route::post('/','CashReportController@store');
 });
