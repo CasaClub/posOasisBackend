@@ -26,7 +26,7 @@ class Ticket extends Model
         return $this->hasOne(credit_payment::class);
     }
 
-    public function ticket_details(){
-        return $this->hasOne(ticket_details::class);
+    public function product(){
+        return $this->belongsToMany(Product::class);
     }
 }

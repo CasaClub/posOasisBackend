@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             'roles',
             'products',
             'payments',
-            'people',
             'users',
             'clients',
             'tickets',
@@ -23,13 +22,12 @@ class DatabaseSeeder extends Seeder
             'workshifts',
             'credits',
             'credit_payments',
-            'ticket_details',
+            'product_ticket',
         ]);
         $this->call([
             RoleSeeder::class,
             ProductSeeder::class,
             PaymentSeeder::class,
-            PersonSeeder::class,
             UserSeeder::class,
             ClientSeeder::class,
             TicketSeeder::class,
@@ -37,7 +35,6 @@ class DatabaseSeeder extends Seeder
             WorkshiftSeeder::class,
             CreditSeeder::class,
             CreditPaymentSeeder::class,
-            TicketDetailsSeeder::class,
             
         ]);
         // $this->call(ejemplo::class);  // aqui todas las clases de los seeaders por orden al igual que el metodo de truncar

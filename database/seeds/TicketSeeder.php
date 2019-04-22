@@ -13,8 +13,9 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-        factory(Ticket::class,3)->create(); // sin el id del cliente debido que esta en credits
+        // factory(Ticket::class,3)->create(); // sin el id del cliente debido que esta en credits
 
-        factory(Ticket::class,2)->create(['client_id'=>Client::all()->random()->id]); // aca creariamos 
+        factory(Ticket::class,1)->create(['client_id'=>3]); // aca creariamos 
+        factory(Ticket::class,1)->create(['client_id'=>5]); // aca creariamos 
     }
 }

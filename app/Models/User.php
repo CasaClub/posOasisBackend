@@ -21,9 +21,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','person_id','role_id'
+        'name','surnames','dni','telephone','direction','email','role_id','password',
     ];
-
+    
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -42,23 +42,30 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function setPasswordAttribute($password) // this must use the cnvention of laravel identify the field password
+    {
+        if($password !=null)
+        {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
+    
     public function role(){
         return $this->belongsTo(Role::class);
     }
 
-    public function cashReport(){
+    public function cash_report(){
         return $this->hasOne(cashReport::class);
     }
 
     public function workshift(){
         return $this->hasMany(Workshift::class);
     }
-
-    public function person(){
-        return $this->belongsTo(Person::class);
-    }
-
+    
     public function tickets(){
         return $this->hasMany(Ticket::class);
+    }
+    public function client(){
+        return $this->hasOne(Client::class);
     }
 }

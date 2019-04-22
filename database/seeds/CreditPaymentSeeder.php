@@ -14,7 +14,6 @@ class CreditPaymentSeeder extends Seeder
      */
     public function run()
     {
-
         factory(credit_payment::class,5)->create([
             'credit_id'=>credit::all()->random()->id,
             'ticket_id'=>Ticket::all()->random()->id
