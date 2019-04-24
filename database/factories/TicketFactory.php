@@ -9,9 +9,9 @@ $factory->define(App\Models\Ticket::class, function (Faker $faker) {
     $nameCompany = "Oasis";
     $optionPay = Payment::all()->random()->id; // sacamos el id del pago
     $payment =  $optionPay == 2 ? 2: $optionPay; // validamo que si es 2 lo deje o sino que asigne el que viene de la consulta
-    $codeVoucher = $payment ==2 ? $faker->randomNumber(4) : null; // y si fue pago con tarjeta que agregue un codigo random al codigo del vaucher
+    $codeVoucher = $payment == 2 ? $faker->randomNumber(4) : null; // y si fue pago con tarjeta que agregue un codigo random al codigo del vaucher
     $telephone = "2222-2222";
-
+    
     return [
         'dni_physical'=>$dniPhysical,
         'name_company'=>$nameCompany,

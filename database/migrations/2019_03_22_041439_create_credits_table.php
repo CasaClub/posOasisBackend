@@ -15,12 +15,13 @@ class CreateCreditsTable extends Migration
     {
         Schema::create('credits', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('client_id');
+            $table->unsignedInteger('client_id')->unique();
             $table->foreign('client_id')->references('id')->on('clients');
             $table->decimal('max',12,2);
             $table->decimal('balance',12,2);
             $table->unsignedTinyInteger('status')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

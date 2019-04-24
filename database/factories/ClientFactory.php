@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Models\Client::class, function (Faker $faker) {
     return [
-        'person_id'=>null,
+        'user_id'=>null,
     ];
 });
 

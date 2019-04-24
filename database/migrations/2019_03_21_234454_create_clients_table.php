@@ -15,12 +15,13 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('people');
+            $table->unsignedInteger('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
